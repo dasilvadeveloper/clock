@@ -6,13 +6,13 @@ export class App extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-			count: setInterval(() => {
+			count: setInterval(() => { 
 				document.querySelector('.seconds--pointer').style.transform =
 					'rotate(' + new Date().getSeconds() * 6 + 'deg) ';
 				document.querySelector('.minutes--pointer').style.transform =
 					'rotate(' + new Date().getMinutes() * 6 + 'deg) ';
 				document.querySelector('.hours--pointer').style.transform =
-					'rotate(' + new Date().getHours() * 6 + 'deg) ';
+					'rotate(' + new Date().getHours() * 30 + 'deg) ';
 			}, 1000),
 		};
 	}

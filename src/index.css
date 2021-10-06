@@ -5,7 +5,8 @@
 }
 
 #root{
-  background: #000;
+  background: rgb(32, 32, 32);
+  box-shadow: inset rgba(0, 0, 0, 0.521) -0px -80px 100px,inset rgba(255, 255, 255, 0.096) -0px 80px 100px ;
   height: 100vh; 
   display: flex;
   justify-content: center;

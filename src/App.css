@@ -1,40 +1,90 @@
-.clock {
+.clock-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+}
+.clock-container span{
+  font-size: 2rem;
+  color: whitesmoke;
+}
+
+.clock-container span a{ 
+  color: white;
+}
+
+
+.clock { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   width: 300px;
-  background: rgb(236, 236, 236);
+  background: rgb(207, 207, 207);
   height: 300px;
   border-radius: 50%;
   position: relative;
   transition:all 1s linear;
   transform: rotate(-90deg);
-  display: flex;
+  filter: drop-shadow(rgba(255, 255, 255, 0.377) 50px 0px 50px);
+  display: flex; 
+  animation: remblur 3s ease; 
+  box-shadow: inset rgba(92, 92, 92, 0.397) 30px 10px 30px,
+    rgba(0, 0, 0, 0.651) -30px -20px 30px, 
+    inset rgb(255, 255, 255) -10px -10px 30px;
+} 
+
+@keyframes remblur {
+  0%{
+    filter: blur(5px) grayscale(5);
+  }
+  50%{
+    filter: blur(0px) grayscale(5) drop-shadow(rgba(255, 255, 255, 0.377) 50px 0px 50px);
+  }
+  100%{
+    filter: blur(0px) grayscale(0) drop-shadow(rgba(255, 255, 255, 0.377) 50px 0px 50px);
+  }
 }
 
-.clock::after {
-  content: " "; 
+.clock::before {
+  content: ""; 
   position: absolute;
   left: 50%;
   top: 50%;
   width: 15px;
   height: 15px;
-  border-radius: 1000%;
+  border-radius: 100%;
   background: rgb(0, 0, 0);
   transform: translate(-50%,-50%)
 }
 
+.clock::after {
+  content: ""; 
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 100%;
+  background: rgb(236, 236, 236);
+  transform: translate(-50%,-50%)
+}
+
 .hours--pointer {
-  width: 30%;
+  width: 20%;
   transition:all 1s linear;
   position: absolute;
   transform-origin: left; 
   left: 50%;
   top: 50%; 
-  height: .5rem;
+  height: .4rem;
   border-radius: 1rem;
   background: rgb(0, 0, 0);
   
 }
 .minutes--pointer {
-  width: 45%;
+  width: 40%;
   position: absolute;
   transition:all 1s linear;
   transform-origin: left; 
@@ -52,6 +102,32 @@
   transition:all 1s linear;
   top: 50%; 
   height: .1rem;
-  border-radius: 1rem;
+  border-radius: 12rem;
   background: rgb(255, 0, 0);
+}
+
+.main--numbers { 
+  position: absolute; 
+  transform: rotate(90deg);
+  font-size: 3rem;
+  color: rgb(34, 34, 34);
+  text-shadow: rgba(139, 139, 139, 0.281) 0px 15px 0px;
+  font-weight: 900;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main--numbers:nth-child(1) {
+  left: 80%;
+}
+.main--numbers:nth-child(2) {
+  left: 45%;
+  top: 80%;
+}
+.main--numbers:nth-child(3) {
+  left: 10%;
+  top: 40%;
+}
+.main--numbers:nth-child(4) {
+  right: 45%;
+  bottom: 80%;
 }
